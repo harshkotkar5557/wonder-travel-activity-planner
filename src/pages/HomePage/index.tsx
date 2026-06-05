@@ -80,12 +80,13 @@ export function HomePage() {
         {(isCitiesLoading || isForecastLoading) && <div className="loader" />}
 
         {!isCitiesLoading &&
+          !selectedCity &&
           debouncedSearchTerm.length >= 2 &&
           cities.length === 0 && <p>No cities found.</p>}
 
         {showSuggestions && cities.length > 0 && (
           <ul className="city-results">
-            {cities.map((city) => (
+            {cities.map((city: City) => (
               <li key={city.id}>
                 <button
                   type="button"
