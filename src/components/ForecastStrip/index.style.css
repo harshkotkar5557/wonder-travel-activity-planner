@@ -1,0 +1,45 @@
+.forecast-strip {
+  width: 100%;
+  margin: 24px 0;
+}
+
+.forecast-days {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 10px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 10px;
+  width: 100%;
+}
+
+.day-card {
+  flex: 0 0 110px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 5px;
+  background: #ffffff;
+  border: 1px solid #f7f7f7;
+  border-radius: 12px;
+  padding: 14px 10px;
+  box-shadow: 0px 0px 10px 1px #ebeaea;
+}
+
+.day-card .dow {
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.day-card .temp {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #5f6fe7;
+}
+
+.day-card .meta {
+  font-size: 0.72rem;
+}

@@ -1,0 +1,36 @@
+.activity-card {
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  box-shadow: 0px 0px 5px 1px #efefef;
+  background: white;
+}
+
+.activity-card > div {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.high {
+  font-weight: 500;
+  padding: 4px 8px;
+  border-radius: 5px;
+  background: #dcfce7;
+}
+
+.medium {
+  font-weight: 500;
+  padding: 4px 8px;
+  border-radius: 5px;
+  background: #fef3c7;
+}
+
+.low {
+  font-weight: 500;
+  padding: 4px 8px;
+  border-radius: 5px;
+  background: #fee2e2;
+}
