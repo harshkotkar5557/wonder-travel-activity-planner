@@ -25,7 +25,7 @@ export function HomePage() {
     data: cities = [],
     isLoading: isCitiesLoading,
     error: citiesError,
-  } = useCitySearch(selectedCity ? "" : debouncedSearchTerm.toLocaleLowerCase());
+  } = useCitySearch(debouncedSearchTerm.toLowerCase());
 
   const {
     data: forecast,
