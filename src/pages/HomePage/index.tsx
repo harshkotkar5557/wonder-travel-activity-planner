@@ -19,7 +19,7 @@ export function HomePage() {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
-  const debouncedSearchTerm = useDebounce(searchTerm, 500);
+  const debouncedSearchTerm = useDebounce(searchTerm.trim(), 500);
 
   const {
     data: cities = [],
@@ -59,8 +59,9 @@ export function HomePage() {
     setSearchTerm(value);
 
     setSelectedCity(null);
-
-    setShowSuggestions(true);
+    if(!value.trim()){
+      setShowSuggestions(true);
+    }
   };
 
   const handleCitySelect = (city: City) => {
