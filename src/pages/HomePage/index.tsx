@@ -71,12 +71,22 @@ export function HomePage() {
     setShowSuggestions(false);
   };
 
+   const handleFocus = () => {
+    if (searchTerm.length >= 2 && !selectedCity) {
+      setShowSuggestions(true);
+    }
+  };
+
   return (
     <main className="app">
       <h1>Travel Activity Planner</h1>
 
       <div ref={wrapperRef}>
-        <CitySearch value={searchTerm} onChange={handleSearchChange} />
+        <CitySearch
+          value={searchTerm}
+          onChange={handleSearchChange}
+          onFocus={handleFocus}
+        />
         {(isCitiesLoading || isForecastLoading) && <div className="loader" />}
 
         {!isCitiesLoading &&
