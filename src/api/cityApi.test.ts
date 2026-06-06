@@ -49,4 +49,14 @@ describe("searchCities", () => {
       "Failed to fetch cities",
     );
   });
+  it("returns an empty array when the API has no results", async () => {
+    mockFetch.mockResolvedValue({
+      ok: true,
+      json: async () => ({}),
+    } as Response);
+
+    const result = await searchCities("zzzzzz");
+
+    expect(result).toEqual([]);
+  });
 });

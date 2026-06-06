@@ -59,9 +59,7 @@ export function HomePage() {
     setSearchTerm(value);
 
     setSelectedCity(null);
-    if(!value.trim()){
-      setShowSuggestions(true);
-    }
+    setShowSuggestions(true);
   };
 
   const handleCitySelect = (city: City) => {
