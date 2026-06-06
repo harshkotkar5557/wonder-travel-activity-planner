@@ -2,11 +2,10 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import { searchCities } from "./cityApi";
 
 describe("searchCities", () => {
-  const mockFetch = vi.fn();
+  let mockFetch: ReturnType<typeof vi.spyOn>;
 
   beforeEach(() => {
-    global.fetch = mockFetch;
-    mockFetch.mockReset();
+    mockFetch = vi.spyOn(global, "fetch");
   });
 
   it("maps API response to City[]", async () => {

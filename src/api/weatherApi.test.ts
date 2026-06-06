@@ -2,11 +2,10 @@ import { describe, expect, it, vi, beforeEach } from "vitest";
 import { getForecast } from "./weatherApi";
 
 describe("getForecast", () => {
-  const mockFetch = vi.fn();
+  let mockFetch: ReturnType<typeof vi.spyOn>;
 
   beforeEach(() => {
-    global.fetch = mockFetch;
-    mockFetch.mockReset();
+    mockFetch = vi.spyOn(global, "fetch");
   });
 
   it("maps weather API response to Forecast", async () => {
