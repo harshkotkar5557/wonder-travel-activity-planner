@@ -111,4 +111,50 @@ describe("HomePage", () => {
       screen.queryByRole("button", { name: /paris/i }),
     ).not.toBeInTheDocument();
   });
+  it("shows activity rankings after selecting a city", async () => {
+    mockedCitySearch.mockReturnValue({
+      data: [
+        {
+          id: 1,
+          name: "London",
+          latitude: 51.5,
+          longitude: -0.12,
+          country: "United Kingdom",
+          admin1: "England",
+        },
+      ],
+      isLoading: false,
+      error: null,
+    } as ReturnType<typeof useCitySearch>);
+
+    mockedForecast.mockReturnValue({
+      data: {
+        city: {
+          id: 1,
+          name: "London",
+          latitude: 51.5,
+          longitude: -0.12,
+          country: "United Kingdom",
+        },
+        days: [
+          {
+            date: "2026-06-07",
+            temperature: 22,
+            rainfall: 0,
+            windSpeed: 10,
+            snowfall: 0,
+          },
+        ],
+      },
+      isLoading: false,
+      error: null,
+    } as ReturnType<typeof useForecast>);
+
+    const user = userEvent.setup();
+    render(<HomePage />);
+    await user.type(screen.getByRole("textbox"), "London");
+
+    await user.click(screen.getByRole("button", { name: /london/i }));
+    expect(screen.getByText(/activity/i)).toBeInTheDocument();
+  });
 });
